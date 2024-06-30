@@ -2,10 +2,8 @@ import app from "./app";
 import { Server as WebSocketServer } from "socket.io";
 import http from 'http';
 import sockets from "./sockets";
-
+import { PORT } from "./config";
 import { connectDB } from "./db";
-
-var PORT = 3000;
 
 connectDB();
 
