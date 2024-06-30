@@ -10,13 +10,21 @@
       { "handle": "filesystem" },
       {
         "src": "/public/(.*)",
-        "dest": "/public/$1",
-        "static": true
+        "dest": "/public/$1"
       },
       {
         "src": "/(.*)",
         "dest": "/index.js"
       }
-    ]
+    ],
+    "static": {
+      "cleanUrls": true,
+      "rewrites": [
+        {
+          "source": "/public/(.*)",
+          "destination": "/public/$1"
+        }
+      ]
+    }
   }
   
