@@ -1,14 +1,29 @@
-import { loadCategories, onNewCategory, selectedCategory, loadCategoriesMain, onNewCategoryMain } from "./socket.js";
-import { onHandleSubmit, renderCategories, appendCategory, fillFormCategory, renderCategoriesMain, appendCategoryMain } from "./ui.js";
+import { loadCategories, onNewCategory, selectedCategory, onNewCategoryMain, loadFood, onNewFood, onSuccessMessage, onErrorMessage, selectedFood, loadFoodAndCategories, onNewFoodMain } from "./socket.js";
+import { onHandleSubmit, renderCategories, appendCategory, fillFormCategory, appendCategoryMain, renderFood, appendFood, onHandleSubmitFood, fillFormFood, renderCategoriesAndFoodMain, appendFoodMain } from "./ui.js";
 
 // Admin screen
 onNewCategory(appendCategory);
 loadCategories(renderCategories);
 selectedCategory(fillFormCategory);
 
-// Main screen
+// Food
+onNewFood(appendFood);
+loadFood(renderFood);
+selectedFood(fillFormFood);
+
+// Main screen // Food main
+loadFoodAndCategories(renderCategoriesAndFoodMain);
 onNewCategoryMain(appendCategoryMain);
-loadCategoriesMain(renderCategoriesMain);
+onNewFoodMain(appendFoodMain);
+
+onNewCategoryMain(appendCategoryMain);
+// onNewFoodMain(appendFoodMain);
+// Messages success/error
+onSuccessMessage();
+onErrorMessage();
 
 const categoryForm = document.querySelector("#categoriesForm");
 categoryForm.addEventListener('submit', onHandleSubmit);
+
+const foodForm = document.querySelector("#foodForm");
+foodForm.addEventListener('submit', onHandleSubmitFood);

@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Roobert';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roobert'), url('../fonts/RoobertRegular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roobert';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Roobert'), url('../fonts/RoobertLight.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roobert';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Roobert'), url('../fonts/RoobertMedium.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Roobert';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Roobert'), url('../fonts/RoobertSemiBold.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Roobert';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roobert'), url('../fonts/RoobertBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roobert';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Roobert'), url('../fonts/RoobertHeavy.woff') format('woff');
+}
+
+.f-roobert {
+    font-family: 'Roobert', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Roobert', sans-serif;
+}

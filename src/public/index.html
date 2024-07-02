@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sockets crud</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/26b28607c6.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
+
 <body>
-    
-    <nav>
-        <a href="/admin.html">admin</a>
+
+    <nav class="w-full fixed h-[10vh] px-6 flex justify-center items-center z-50">
+        <ul class="w-full flex justify-between items-center">
+            <li></li>
+            <li><a href="/admin.html" class="flex justify-center items-center text-white">Administrar <i
+                        class='bx bx-right-arrow-alt text-xl -rotate-45'></i></a></li>
+        </ul>
     </nav>
 
-    <ul id="categorysMenu">
+    <main class="relative w-screen h-screen text-white">
+        <img src="img/bg-main-2.jpg" class="object-cover fixed w-full h-full -z-10 brightness-75 pointer-events-none" alt="">
+        <div id="categorysMenu">
+        </div>
+        <div id="foodMenu">
+        </div>
+    </main>
 
-    </ul>
-
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="/socket.io/socket.io.min.js"></script>
     <!-- <script src="ui.js"></script> -->
     <!-- <script src="sockets.js"></script> -->
     <script src="main.js" type="module"></script>
 </body>
+
 </html>
