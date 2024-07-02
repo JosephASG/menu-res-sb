@@ -1,5 +1,5 @@
-import { loadCategories, onNewCategory, selectedCategory, onNewCategoryMain, loadFood, onNewFood, onSuccessMessage, onErrorMessage, selectedFood, loadFoodAndCategories, onNewFoodMain } from "./socket.js";
-import { onHandleSubmit, renderCategories, appendCategory, fillFormCategory, appendCategoryMain, renderFood, appendFood, onHandleSubmitFood, fillFormFood, renderCategoriesAndFoodMain, appendFoodMain } from "./ui.js";
+import { loadCategories, onNewCategory, selectedCategory, onNewCategoryMain, loadFood, onNewFood, onSuccessMessage, onErrorMessage, selectedFood, loadFoodAndCategories, onNewFoodMain, updateStateFoodMain } from "./socket.js";
+import { onHandleSubmit, renderCategories, appendCategory, fillFormCategory, appendCategoryMain, renderFood, appendFood, onHandleSubmitFood, fillFormFood, renderCategoriesAndFoodMain, appendFoodMain, updateStateFoodMainUI } from "./ui.js";
 
 // Admin screen
 onNewCategory(appendCategory);
@@ -15,6 +15,7 @@ selectedFood(fillFormFood);
 loadFoodAndCategories(renderCategoriesAndFoodMain);
 onNewCategoryMain(appendCategoryMain);
 onNewFoodMain(appendFoodMain);
+updateStateFoodMain(updateStateFoodMainUI);
 
 onNewCategoryMain(appendCategoryMain);
 // onNewFoodMain(appendFoodMain);

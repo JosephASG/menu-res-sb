@@ -53,10 +53,17 @@ export const selectedFood = callback => {
     socket.on('server:selectedfood', callback);
 }
 
-export const updateFood = (id, name, price, category, description, saveId, stateFood) => {
-    socket.emit('client:updatefood', {_id: id, name, price, category, description, saveId, stateFood});
+export const updateFood = (id, name, price, category, description, lineThrough, stateFood) => {
+    socket.emit('client:updatefood', {_id: id, name, price, category, description, lineThrough, stateFood});
 }
 
+export const updateStateFood = (id, stateFood, classLineThrough) => {
+    socket.emit('client:updateStateFood', {_id: id, stateFood, classLineThrough});
+}
+
+export const updateStateFoodMain = (callback) => {
+    socket.on('server:foodUpdated', (callback));
+}
 // MAIN
 export const loadFoodAndCategories = (callback)=>{
     socket.on('server:loadFoodAndCategories', callback)

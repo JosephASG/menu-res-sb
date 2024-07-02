@@ -17,9 +17,9 @@ const schemaFood = new Schema({
         type: String,
         default: "Sin descripción",
     },
-    idCategory: {
+    lineThrough: {
         type: String,
-        require: true
+        default: ""
     },
     stateFood: {
         type: Boolean,

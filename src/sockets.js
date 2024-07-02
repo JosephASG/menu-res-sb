@@ -4,6 +4,15 @@ import Food from './models/Food'
 export default (io) =>{
     io.on('connection', (socket)=>{
 
+                // Main Emits
+                const emitFoodMain = async ()=>{
+                    const food = await Food.find();
+                    const categories = await Category.find();
+                    
+                    io.emit('server:loadFoodAndCategories', { food, categories });
+                }
+                emitFoodMain();
+
         // Categories
         const emitCategories = async ()=>{
             const categories = await Category.find();
@@ -26,6 +35,7 @@ export default (io) =>{
 
         socket.on('client:deletecategory', async (id) =>{
             await Category.findByIdAndDelete(id);
+            emitFoodMain();
             emitCategories();
         })
 
@@ -38,6 +48,7 @@ export default (io) =>{
             const category = await Category.findByIdAndUpdate(updatedCategory._id, {
                 name: updatedCategory.name
             });
+            emitFoodMain();
             emitCategories();
         })
 
@@ -61,6 +72,7 @@ export default (io) =>{
         })
         socket.on('client:deletefood', async (id) =>{
             await Food.findByIdAndDelete(id);
+                emitFoodMain();
             emitFood();
         })
 
@@ -75,19 +87,22 @@ export default (io) =>{
                 price: updatedFood.price,
                 category: updatedFood.category,
                 description: updatedFood.description,
-                idCategory: updatedFood.saveId,
+                lineThrough: updatedFood.lineThrough,
                 stateFood: updatedFood.stateFood
             });
+            emitFoodMain();
             emitFood();
         })
+        socket.on('client:updateStateFood', async (updatedFood) =>{
+            const food = await Food.findByIdAndUpdate(updatedFood._id, {
+                lineThrough: updatedFood.classLineThrough,
+                stateFood: updatedFood.stateFood
+            });
+            const foodUpdate = await Food.findById(updatedFood._id);
+            io.emit('server:foodUpdated', foodUpdate);
 
-        // Main Emits
-        const emitFoodMain = async ()=>{
-            const food = await Food.find();
-            const categories = await Category.find();
-            
-            io.emit('server:loadFoodAndCategories', { food, categories });
-        }
-        emitFoodMain();
+            emitFoodMain();
+            // emitFood();
+        })
     })
 }
